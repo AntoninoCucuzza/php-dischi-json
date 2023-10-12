@@ -18,21 +18,44 @@
 <body>
 
     <div id="app">
+
         <header class="d-flex">
             <img class="img-fluid" src="./assets/img/logo.svg" alt="">
         </header>
+
         <main>
             <div class="container pt-5">
 
                 <div class="row g-5">
-                    <div v-for="disco in dischi" class="col-4">
-                        <div class="card py-3 d-flex flex-column justify-content-center align-items-center">
+
+                    <div class="modal fade" :id="`N${disco.year}${i}`" tabindex="-1" :aria-labelledby="`${disco.year}${i}`" aria-hidden="true" v-for="(disco, i) in dischi" :id="`${disco.year}${i}`">
+
+                        <div class="modal-dialog modal-dialog-centered ">
+                            <div class="modal-content content py-3 d-flex flex-column justify-content-center align-items-center">
+
+                                <div class="wrapper-img d-flex ">
+                                    <img class="img-fluid" :src="disco.poster" :alt="disco.author">
+                                </div>
+
+                                <h4>nome: {{disco.title}}</h4>
+                                <h4>autore: {{disco.author}}</h4>
+                                <h4>data: {{disco.year}} </h4>
+                                <h4>genere: {{disco.genre}}</h4>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div v-for="(disco, i) in dischi " class="col-12 col-md-6 col-lg-4">
+                        <div class="card p-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" :data-bs-target="`#N${disco.year}${i}`" :id="`${disco.year}${i}`">
 
                             <div class="wrapper-img d-flex ">
-                                <img class="img-fluid" :src="disco.poster" alt="">
+                                <img class="img-fluid" :src="disco.poster" :alt="disco.author">
                             </div>
 
-                            <h4 class="text-center">{{disco.title}}</h4>
+                            <h4>{{disco.title}}</h4>
                             <p>{{disco.author}}</p>
                             <h4>{{disco.year}}</h4>
 

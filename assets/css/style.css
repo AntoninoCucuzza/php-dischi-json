@@ -18,5 +18,13 @@ header {
 
 .wrapper-img {
     height: 300px;
-    width: 300px;
+}
+
+.wrapper-img img {
+    object-fit: contain;
+}
+
+.content {
+    background-color: #333;
+
 }
