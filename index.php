@@ -1,6 +1,5 @@
 <?php
-$test = 'we';
-var_dump($test);
+
 ?>
 
 <!DOCTYPE html>
@@ -23,15 +22,24 @@ var_dump($test);
             <img class="img-fluid" src="./assets/img/logo.svg" alt="">
         </header>
         <main>
-            <div class="container">
-                <!--       <div class="row">
-                    <div class="col-4"></div>
-                </div> -->
-                <div class="p-3" v-for="disco in dischi">
-                    {{disco}}
-                    {{disco.title}}
+            <div class="container pt-5">
 
+                <div class="row g-5">
+                    <div v-for="disco in dischi" class="col-4">
+                        <div class="card py-3 d-flex flex-column justify-content-center align-items-center">
+
+                            <div class="wrapper-img d-flex ">
+                                <img class="img-fluid" :src="disco.poster" alt="">
+                            </div>
+
+                            <h4 class="text-center">{{disco.title}}</h4>
+                            <p>{{disco.author}}</p>
+                            <h4>{{disco.year}}</h4>
+
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </main>
     </div>
